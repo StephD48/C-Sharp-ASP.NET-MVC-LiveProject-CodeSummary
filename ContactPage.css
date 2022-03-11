@@ -1,0 +1,43 @@
+/*  Contact Page Start */
+
+.Contact-donate  {
+    position: absolute;
+    top: 420px;
+    right: 325px;
+    width: 220px;
+    height: 35px;
+    text-align: left;
+
+}
+.Contact-donate button {
+    background-color: var(--main-color);
+}
+.Contact-volunteer {
+    position: absolute;
+    top: 625px;
+    right: 270px;
+    width: 280px;
+    height: 15px;
+    text-align: left;
+}
+.Contact-volunteer button {
+    background-color: var(--main-color);
+}
+   
+.Contact-main h2 {
+   text-align: center;
+   text-decoration:underline var(--main-color);
+}
+.Contact-main {
+    background-color: var(--main-color--light);
+    padding: 50px;
+    margin-top: 5px;
+    width: -400px; 
+    border-radius: 10px;
+}
+.Contact-main button {
+    background-color: var(--main-color);
+}
+
+
+/* Contact Page End */

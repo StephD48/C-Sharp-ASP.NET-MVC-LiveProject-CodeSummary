@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Rent.Models.RentalPhoto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h2>Rental Photos</h2>
+
+    <p>
+        <button onclick="location.href = '@Url.Action("Create")'" class="RentalPhotos-Create--backBtn">Create New</button>
+    </p>
+</div>
+
+<div class="card-deck"> 
+    <div class="row row-cols-1 row-cols-4">
+        
+           
+            @foreach (var item in Model)
+            {
+                string image = "";
+                if (item.RentalPhotos != null)
+                {
+                    image = Convert.ToBase64String(item.RentalPhotos);
+                }
+
+                    <div class="col mb-4 text-center">
+                    
+                            @Html.DisplayFor(modelItem => item.RentalsName)
+                            <img src="data:image/jpg;base64, @image" class="" atl="Rental Photo"/>
+                            <div class="RentalPhotos-index--card-img-overlay">
+                                <button class="btn btn-danger btn-sm btn-outline-light">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.RentalPhotoId })
+                                </button> 
+                                <button class="btn btn-dark btn-sm btn-outline-light">
+                                    <i class="fa fa-user-edit" aria-hidden="true"></i>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.RentalPhotoId })
+                                </button>
+                                <button class="btn btn-warning btn-sm btn-outline-light">
+                                    @Html.ActionLink("Details", "Details", new { id = item.RentalPhotoId })
+                                </button>
+                                
+
+
+
+                            </div>
+                    </div>
+
+
+            }
+
+    </div>
+</div>
+
+
+
+
+    

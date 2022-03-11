@@ -1,0 +1,95 @@
+﻿@model TheatreCMS3.Areas.Rent.Models.RentalPhoto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+<div class="RentalPhotos-Delete--form-contain">
+    <h1>Delete this Rental Photo?</h1>
+    <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10 offset-1 text-center">
+            <div>
+                <h3>@Html.DisplayNameFor(model => model.RentalsName)</h3>
+            </div>
+
+            <div>
+                <h5>@Html.DisplayFor(model => model.RentalsName)</h5>
+            </div>
+
+            <div>
+                <h3>@Html.DisplayNameFor(model => model.Damages)</h3>
+            </div>
+
+            <div>
+                @Html.DisplayFor(model => model.Damages)
+            </div>
+            @{
+                string image = "";
+                if (Model.RentalPhotos != null)
+                {
+                    image = Convert.ToBase64String(Model.RentalPhotos);
+                }
+            }
+
+            <div>
+                <h3>@Html.DisplayNameFor(model => model.RentalPhotos)</h3>
+            </div>
+
+            <div>
+                <img src="data:image/jpg;base64, @image" class="image-index--size" />
+            </div>
+
+            <div>
+                <h3>@Html.DisplayNameFor(model => model.Details)</h3>
+            </div>
+
+            <div>
+                <h5>@Html.DisplayFor(model => model.Details)</h5>
+            </div>
+
+
+            @*<div class="col mb-4 text-center">
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+
+        
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+      
+                
+            <div class="RentalPhotos-Delete--form-actions text-center">
+                <button onclick="location.href = '@Url.Action("Delete")'" class="btn btn-danger btn-outline-light">
+                    <i class="fa fa-trash" aria-hidden="true"> Delete </i>
+                </button> 
+            </div>
+            @*<div>
+                <button class="btn btn-dark btn-lg btn-outline-light">
+                    <i class="fa fa-user-edit" aria-hidden="true"></i>
+                    @Html.ActionLink("Edit", "Edit")
+                </button>
+                <button class="btn btn-dark btn-lg btn-outline-light">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
+            
+            </div>*@
+            }
+        </div>
+</div>
+        <div>
+            <button class="btn btn-dark btn-lg btn-outline-light">
+                <i class="fa fa-user-edit" aria-hidden="true"></i>
+                @Html.ActionLink("Edit", "Edit")
+            </button>
+            <button class="btn btn-dark btn-lg btn-outline-light">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                @Html.ActionLink("Back to List", "Index")
+            </button>
+
+        </div>
